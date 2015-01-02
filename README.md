@@ -4,21 +4,21 @@
 
 <img src="https://github.com/swells/deployr-cli/raw/master/assets/di.png"/>
 
-# Overview
+## Overview
 
 [di](https://github.com/deployr/deployr-cli) is a [Command Line Tool (CLI)](http://en.wikipedia.org/wiki/Command-line_interface) for running useful 
 [DeployR](http://deployr.revolutionanalytics.com) utilities. Although the 
 current feature set is minimal, many more CLI commands will be added going 
 forward.
 
-# Dependencies
+## Dependencies
 
 _di_ requires:
 
 - [Node.js](http://nodejs.org/) to be installed.
 - A running [DeployR](http://deployr.revolutionanalytics.com/documents/admin/install) server to connect to.
 
-# Installation
+## Installation
 
 _di_ is installed and managed via [npm](http://npmjs.org), the [Node.js](http://nodejs.org/) package manager.
 
@@ -35,7 +35,7 @@ npm install -g deployr-cli
 This will put the `di` command in your system path allowing it to be run from 
 any location.
 
-# Usage
+## Usage
 
 `di` is self documenting and the best way to become familiar with the tool is to 
 try it out from your command line:
@@ -81,7 +81,7 @@ di users
 di server
 ```
 
-# Help
+## Help
 
 All commands have corresponding _help_ text associated with it. To read the help
 text for a `di` command, type:
@@ -94,7 +94,7 @@ For example, to display the help text for the `whoami` command:
 
 <img src="https://github.com/swells/deployr-cli/raw/master/assets/whoami.png"/>
 
-# .diconf file
+## .diconf file
 
 All configuration data for your local `di` install is located in the *.diconf* file in your home directory. Directly modifying this file is not really advised. You should be able to make all configuration changes from the _main menu_ UI or via:
 
@@ -116,7 +116,7 @@ Example:
 di --diconf /path/to/other/configuration/.diconf
 ```
 
-# di options
+## di options
 
     di [commands] [options]
  
@@ -124,7 +124,7 @@ di --diconf /path/to/other/configuration/.diconf
     --diconf [file]       specify file to load configuration from
     --help                prints cli help and exit
 
-# License
+## License
 
 Copyright (C) 2010-2014 by Revolution Analytics Inc.
 
