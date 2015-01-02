@@ -2,7 +2,7 @@
 
 > CLI tool for running useful [DeployR](http://deployr.revolutionanalytics.com) utilities
 
-<img src="/Users/swells/viewstore/8.x/tt/cli2/assets/di.png"/>
+<img src="https://github.com/swells/deployr-cli/raw/master/assets/di.png"/>
 
 ## Overview
 
@@ -92,7 +92,7 @@ di help <command>
 
 For example, to display the help text for the `whoami` command:
 
-<img src="/Users/swells/viewstore/8.x/tt/cli2/assets/whoami.png"/>
+<img src="https://github.com/swells/deployr-cli/raw/master/assets/whoami.png"/>
 
 ## .diconf file
 
