@@ -20,13 +20,12 @@
  */
 
 var path = require('path'),
-    util = require('util'),
     flatiron = require('flatiron'),
-    chalk = require('chalk'),
     opn = require('opn');
 
 /** @alias module:deployr-cli */
 var di = module.exports = flatiron.app;
+di.name = 'di';
 
 //
 // Setup `di` to use `pkginfo` to expose version
@@ -34,7 +33,7 @@ var di = module.exports = flatiron.app;
 require('pkginfo')(module, 'name', 'version');
 
 //
-// Configure di to use `flatiron.plugins.cli`
+// Configure `di` to use `flatiron.plugins.cli`
 //
 di.use(flatiron.plugins.cli, {
     version: true,
@@ -59,6 +58,9 @@ di.use(flatiron.plugins.cli, {
     }
 });
 
+/**
+ * Configure `di` to use `cli-inquirer`
+ */
 di.use(require('./lib/plugins/inquirer'));
 
 require('./lib/config');
@@ -167,13 +169,14 @@ di.setup = function(callback) {
     callback();
 };
 
-//
-// ### function showError (command, err, shallow, skip)
-// #### @command {string} Command which has errored.
-// #### @err {Error} Error received for the command.
-// #### @shallow {boolean} Value indicating if a deep stack should be displayed
-// Displays the `err` to the user for the `command` supplied.
-//
+/**
+ * Displays the `err` to the user for the `command` supplied.
+ *
+ * @param  {String} command  - Command which has errored.
+ * @param  {Error} err       - Error received for the command.
+ * @param  {Boolean} shallow - Indicate if a deep stack should be displayed
+ */
+
 di.showError = function(command, err, shallow) {
     di.log.error('Error running command ' + command.magenta);
 
@@ -191,13 +194,10 @@ di.goto = function(command, callback) {
     di.plugins.cli.executeCommand(command, callback);
 };
 
-//
-// Display the home `di` screen, with the intial set of options.
-//
-// - options - (optional)
-//           - message (string) - String to print before prompt.
-//           - refresh (bool) - Spawn a new `di` command.
-di.home = function(options) {
+/**
+ * Display the home `di` screen with the intial set of options.
+ */
+di.home = function() {
     var separator = di.prompt.separator,
         endpoint = di.config.get('endpoint'),
         name = di.config.get('username'),
@@ -220,7 +220,7 @@ di.home = function(options) {
         }, {
             name: 'Get me out of here!',
             value: {
-                method: 'exit'
+                method: 'noop'
             }
         }];
 
@@ -230,7 +230,7 @@ di.home = function(options) {
     di.prompt.inquirer([{
         name: 'whatNext',
         type: 'list',
-        message: 'Welcome to DeployR CLI' + chalk.magenta(name) + '!',
+        message: 'Welcome to DeployR CLI' + di.chalk.magenta(name) + '!',
         choices: this._.flatten([
             separator('Choices'),
             separator(),
@@ -238,7 +238,7 @@ di.home = function(options) {
             separator()
         ])
     }], function(answer) {
-        this[answer.whatNext.method](answer.whatNext.args, di.noop);
+        this[answer.whatNext.method](answer.whatNext.args);
     }.bind(this));
 };
 
@@ -326,7 +326,7 @@ di.exit = function() {
             'Good Bye!' +
             newLine +
             newLine +
-            'The DeployR Team' + chalk.dim.yellow(' ♥  ' + url)
+            'The DeployR Team' + di.chalk.dim.yellow(' ♥  ' + url)
         );
     }
 };

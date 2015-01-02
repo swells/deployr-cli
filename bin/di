@@ -16,8 +16,7 @@ require('../lib/completion');
 
 process.title = 'di';
 
-//var di = require('../lib/di');
-var di = require('../index');
+var di = require('../di');
 
 di.start(function (err) {
   process.exit(err ? 1 : 0);

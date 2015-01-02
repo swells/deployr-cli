@@ -1,0 +1,74 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.5.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: "spring-boot"
+
+group = "com.revo.deployr.java.rbroker.example"
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+applicationDefaultJvmArgs = ["-Dendpoint=http://localhost:7300/deployr",
+                             "-Dserver.port=9080",
+                             "-Dusername=testuser",
+                             "-Dpassword=changeme",
+                             "-Dpoolsize=1"]
+
+task argsOverride << {
+
+    /*
+     * Usage: gradlew run -Pendpoint=http://dserver:dport/deployr
+     */
+
+    if(project.hasProperty('endpoint')) {
+        applicationDefaultJvmArgs[0] = "-Dendpoint=${endpoint}"
+        println "Project property (DeployR endpoint) override: " +
+                                "${applicationDefaultJvmArgs[0]}"
+    } else {
+        println "Project property (DeployR endpoint) default: " +
+                                "${applicationDefaultJvmArgs[0]}"
+    }
+
+    if(project.hasProperty('username')) {
+        applicationDefaultJvmArgs[2] = "-Dusername=${username}"
+        println "Project property (DeployR username) override: " +
+                                "${applicationDefaultJvmArgs[2]}"
+    } else {
+        println "Project property (DeployR username) default: " +
+                                "${applicationDefaultJvmArgs[2]}"
+    }
+
+    if(project.hasProperty('password')) {
+        applicationDefaultJvmArgs[3] = "-Dpassword=${password}"
+        println "Project property (DeployR password) override: [HIDDEN]"
+    } else {
+        println "Project property (DeployR password) default: [HIDDEN]"
+    }
+
+}
+
+tasks.run.dependsOn argsOverride
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "com.revolutionanalytics.deployr:jRBroker:7.3.0"
+    compile "com.revolutionanalytics.deployr:jDeployR:7.3.0"
+    compile "org.springframework.boot:spring-boot-starter-web:1.0.1.RELEASE"
+    compile("org.springframework.boot:spring-boot-starter-websocket")
+    compile("org.springframework:spring-messaging")
+    compile 'org.projectlombok:lombok:1.14.4'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}
