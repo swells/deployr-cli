@@ -1,5 +1,5 @@
 {
-  "name": "di",
+  "name": "deployr-cli",
   "version": "7.3.0",
   "description": "CLI tool for running useful DeployR utilities",
   "private": false,

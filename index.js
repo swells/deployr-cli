@@ -9,11 +9,14 @@
  * details.
  */
 
+/**
+ * @module deployr-cli
+ */
+
 'use strict';
 
-/*
- * di.js: Top-level include for the di module.
- *
+/**
+ * CLI tool for running useful DeployR utilities.
  */
 
 var path = require('path'),
@@ -22,6 +25,7 @@ var path = require('path'),
     chalk = require('chalk'),
     opn = require('opn');
 
+/** @alias module:deployr-cli */
 var di = module.exports = flatiron.app;
 
 //
@@ -194,32 +198,31 @@ di.goto = function(command, callback) {
 //           - message (string) - String to print before prompt.
 //           - refresh (bool) - Spawn a new `di` command.
 di.home = function(options) {
-    var done = function() {}; //async();
-    var separator = di.prompt.separator;
-    var endpoint = di.config.get('endpoint');
-    var name = di.config.get('username');
-    var defaultChoices = [{
-        name: 'Settings',
-        value: {
-            method: 'settings'
-        }
-    }, {
-        name: 'Install an example',
-        value: {
-            method: 'goto',
-            args: ['install', 'example']
-        }
-    }, {
-        name: 'Find some help',
-        value: {
-            method: 'findHelp'
-        }
-    }, {
-        name: 'Get me out of here!',
-        value: {
-            method: 'noop'
-        }
-    }];
+    var separator = di.prompt.separator,
+        endpoint = di.config.get('endpoint'),
+        name = di.config.get('username'),
+        defaultChoices = [{
+            name: 'Settings',
+            value: {
+                method: 'settings'
+            }
+        }, {
+            name: 'Install an example',
+            value: {
+                method: 'goto',
+                args: ['install', 'example']
+            }
+        }, {
+            name: 'Find some help',
+            value: {
+                method: 'findHelp'
+            }
+        }, {
+            name: 'Get me out of here!',
+            value: {
+                method: 'exit'
+            }
+        }];
 
     name = (name && endpoint ? ' ' + name + '@' + endpoint.replace(/^https?:\/\//, '') : '');
     //this.insight.track('di', 'home');    
@@ -235,7 +238,7 @@ di.home = function(options) {
             separator()
         ])
     }], function(answer) {
-        this[answer.whatNext.method](answer.whatNext.args, done);
+        this[answer.whatNext.method](answer.whatNext.args, di.noop);
     }.bind(this));
 };
 
@@ -255,7 +258,7 @@ di.findHelp = function() {
             value: 'http://deployr.revolutionanalytics.com/faq'
         }, {
             name: 'File an issue on GitHub',
-            value: 'http://github.com/deployr'
+            value: 'http://github.com/deployr-cli'
         }, {
             name: 'Take me back home!',
             value: {
@@ -264,7 +267,6 @@ di.findHelp = function() {
         }]
     }], function(answer) {
         //this.insight.track('di', 'help', answer);
-
         if (this._.isFunction(this[answer.whereTo.method])) {
             this[answer.whereTo.method](answer.whereTo.args);
         } else {
@@ -283,7 +285,7 @@ di.settings = function() {
                 args: ['endpoint']
             }
         }, {
-          name: 'About server',
+            name: 'About server',
             value: {
                 method: 'goto',
                 args: ['about']
@@ -306,12 +308,11 @@ di.settings = function() {
             separator()
         ])
     }], function(answer) {
-        this[answer.general.method](answer.general.args, function() {
-          di.home();
+        this[answer.general.method](answer.general.args, function() { 
+            di.home();
         });
     }.bind(di));
 };
-
 
 di.exit = function() {
     if (di.displayExit) {
