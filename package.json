@@ -1,7 +1,7 @@
 {
   "name": "di",
   "version": "7.3.0",
-  "description": "Command line interface for DeployR.",
+  "description": "CLI tool for running useful DeployR utilities",
   "private": false,
   "keywords": [
     "cli",
