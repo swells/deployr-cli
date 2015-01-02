@@ -23,8 +23,8 @@ _di_ requires:
 _di_ is installed and managed via [npm](http://npmjs.org), the [Node.js](http://nodejs.org/) package manager.
 
 To get started, you will want to install _di's_ command line interface (CLI) 
-globally. You may need to use sudo for (OSX, *nix, etc) or for Windows run your 
-command shell as Administrator.
+globally. You may need to use sudo for (OSX, *nix, BSD, etc). If you are using 
+Windows, run your command shell as Administrator.
 
 One-line install using [npm](http://npmjs.org):
 
@@ -46,25 +46,25 @@ di <resource> <action> <param1> <param2> ...
 
 ### Common Commands
 
-**Main menu:**
+*Main menu:*
 
 ```
 di
 ```
 
-**To set the DeployR server endpoint:**
+*To set the DeployR server endpoint:*
 
 ```
 di endpoint
 ```
 
-**To log into DeployR:**
+*To log into DeployR:*
 
 ```
 di login
 ```
 
-**To install a pre-built example:**
+*To install a pre-built example:*
 
 ```
 di install example
