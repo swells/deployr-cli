@@ -45,7 +45,7 @@
     "vows": "0.7.x"
   },
   "bin": {
-    "di": "./bin/di"
+    "di": "bin/di"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
