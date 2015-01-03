@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/deployr/deployr-cli.git"
+    "url": "git://github.com/swells/deployr-cli.git"
   },
   "homepage": "http://deployr.revolutionanalytics.com",
   "dependencies": {
@@ -56,6 +56,6 @@
   },
   "license": "Apache 2.0 License",
   "bugs": {
-    "url": "https://github.com/deployr/deployr-cli/issues"
+    "url": "https://github.com/swells/deployr-cli/issues"
   }
 }
