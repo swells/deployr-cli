@@ -20,21 +20,23 @@
  */
 
 var path = require('path'),
-    flatiron = require('flatiron'),
-    opn = require('opn');
+    opn = require('opn'),
+    flatiron = require('flatiron');
 
-/** @alias module:deployr-cli */
+/** 
+ * @alias module:deployr-cli 
+ */ 
 var di = module.exports = flatiron.app;
 di.name = 'di';
 
-//
-// Setup `di` to use `pkginfo` to expose version
-//
+/**
+ * Setup `di` to use `pkginfo` to expose version,
+ */
 require('pkginfo')(module, 'name', 'version');
 
-//
-// Configure `di` to use `flatiron.plugins.cli`
-//
+/**
+ * Configure `di` to use `flatiron.plugins.cli`
+ */
 di.use(flatiron.plugins.cli, {
     version: true,
     usage: require('./lib/usage'),
@@ -59,13 +61,18 @@ di.use(flatiron.plugins.cli, {
 });
 
 /**
- * Configure `di` to use `cli-inquirer`
+ * Configure `di` to use `cli-inquirer` for more sophisticated prompts.
  */
 di.use(require('./lib/plugins/inquirer'));
 
+//
+// Setup `di` with: config, command aliases settings
+//
 require('./lib/config');
 require('./lib/alias');
 require('./lib/commands');
+
+
 di.chalk = require('chalk');
 di._ = require('lodash');
 di.brand = require('./lib/util/brand');
@@ -79,12 +86,11 @@ di.displayExit = true;
 
 di.noop = function() {};
 
-//
-// ### function start (command, callback)
-// #### @command {string} Command to execute once started
-// #### @callback {function} Continuation to pass control to when complete.
-// Starts the di CLI and runs the specified command.
-//
+/**
+ * Starts the di CLI and runs the specified command.
+ *
+ * @param {Function} callback - Continuation to pass control to when complete.
+ */
 di.start = function(callback) {
     //
     // whoami command should not output anything but username
@@ -122,6 +128,7 @@ di.start = function(callback) {
 // Runs the specified command in the di CLI.
 //
 di.exec = function(command, callback) {
+
     function execCommand(err) {
 
         if (err) {
@@ -151,7 +158,8 @@ di.exec = function(command, callback) {
 // there is no io here, yet this function is ASYNC.
 //
 di.setup = function(callback) {
-
+	console.log(di.common);
+	console.log('--------');
     if (di.started === true) {
         return callback();
     }
@@ -172,9 +180,9 @@ di.setup = function(callback) {
 /**
  * Displays the `err` to the user for the `command` supplied.
  *
- * @param  {String} command  - Command which has errored.
- * @param  {Error} err       - Error received for the command.
- * @param  {Boolean} shallow - Indicate if a deep stack should be displayed
+ * @param {String} command  - Command which has errored.
+ * @param {Error} err       - Error received for the command.
+ * @param {Boolean} shallow - Indicate if a deep stack should be displayed
  */
 
 di.showError = function(command, err, shallow) {
@@ -308,7 +316,7 @@ di.settings = function() {
             separator()
         ])
     }], function(answer) {
-        this[answer.general.method](answer.general.args, function() { 
+        this[answer.general.method](answer.general.args, function() {
             di.home();
         });
     }.bind(di));
