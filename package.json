@@ -1,6 +1,6 @@
 {
   "name": "deployr-cli",
-  "version": "7.3.1",
+  "version": "7.3.2",
   "description": "CLI tool for running useful DeployR utilities",
   "private": false,
   "keywords": [
