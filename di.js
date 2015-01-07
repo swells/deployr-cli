@@ -71,8 +71,6 @@ di.use(require('./lib/plugins/inquirer'));
 require('./lib/config');
 require('./lib/alias');
 require('./lib/commands');
-
-
 di.chalk = require('chalk');
 di._ = require('lodash');
 di.brand = require('./lib/util/brand');
@@ -83,7 +81,6 @@ di.spawnCommand = require('./lib/util/spawn-command');
 //
 di.started = false;
 di.displayExit = true;
-
 di.noop = function() {};
 
 /**
@@ -121,12 +118,11 @@ di.start = function(callback) {
     });
 };
 
-//
-// ### function exec (command, callback)
-// #### @command {string} Command to execute
-// #### @callback {function} Continuation to pass control to when complete.
-// Runs the specified command in the di CLI.
-//
+/**
+ * Runs the specified command in the `di` CLI.
+ * @param {String} command - Command to execute
+ * @param {Function} callback - Continuation to pass control to when complete. 
+ */
 di.exec = function(command, callback) {
 
     function execCommand(err) {
@@ -139,7 +135,6 @@ di.exec = function(command, callback) {
         di.router.dispatch('on', command.join(' '), di.log, function(err, shallow) {
 
             if (err) {
-                console.log('shallow:: ' + shallow)
                 di.showError(command.join(' '), err, shallow);
                 return callback(err);
             }
@@ -151,22 +146,20 @@ di.exec = function(command, callback) {
     return !di.started ? di.setup(execCommand) : execCommand();
 };
 
-//
-// ### function setup (callback)
-// #### @callback {function} Continuation to pass control to when complete.
-// Sets up the instances of the Resource clients for di.
-// there is no io here, yet this function is ASYNC.
-//
+/**
+ * Sets up the instances of the Resource clients for di.
+ * there is no io here, yet this function is ASYNC.
+ *
+ * @param {Function} callback - ontinuation to pass control to when complete.
+ */
 di.setup = function(callback) {
-	console.log(di.common);
-	console.log('--------');
     if (di.started === true) {
         return callback();
     }
 
     di.started = true;
 
-    // Hack - override the 'jitsu' refrence in $di help config list
+    // Hack - override the 'jitsu' refrence in `$di help config list`
     di.commands.config.list.usage = [
         'Lists all configuration values currently',
         'set in the .diconf file',
@@ -184,7 +177,6 @@ di.setup = function(callback) {
  * @param {Error} err       - Error received for the command.
  * @param {Boolean} shallow - Indicate if a deep stack should be displayed
  */
-
 di.showError = function(command, err, shallow) {
     di.log.error('Error running command ' + command.magenta);
 
@@ -192,11 +184,18 @@ di.showError = function(command, err, shallow) {
         err.stack.split('\n').forEach(function(trace) {
             di.log.error(trace);
         });
+    } else if (err.deployr) {
+        di.log.error('DeployR API error on call "' + err.get('call') + '"');        
+        di.log.error('Error Code: ' + err.get('errorCode'));
+        di.log.error('Error: ' + err.get('error'));
     } else {
         di.log.error(err);
     }
 };
 
+/**
+ *
+ */
 di.goto = function(command, callback) {
     callback = callback || function() {};
     di.plugins.cli.executeCommand(command, callback);
@@ -250,7 +249,9 @@ di.home = function() {
     }.bind(this));
 };
 
-// Prompts user with a few helpful resources, then opens it in their browser.
+/**
+ * Prompts user with a few helpful resources, then opens it in their browser.
+ */
 di.findHelp = function() {
     // this.insight.track('di', 'help');
     di.prompt.inquirer([{
@@ -260,14 +261,17 @@ di.findHelp = function() {
             '\nI will open the link you select in your browser for you',
         choices: [{
             name: 'Take me to the documentation',
-            value: 'http://deployr.revolutionanalytics.com/'
-        }, {
-            name: 'View Frequently Asked Questions',
-            value: 'http://deployr.revolutionanalytics.com/faq'
+            value: di.config.get('homepage')
         }, {
             name: 'File an issue on GitHub',
-            value: 'http://github.com/deployr-cli'
+            value: di.config.get('git').cli
         }, {
+            name: '`di` help',
+            value: {
+                method: 'goto',
+                args: ['about']
+            }
+        }, {            
             name: 'Take me back home!',
             value: {
                 method: 'home'
@@ -283,7 +287,9 @@ di.findHelp = function() {
     }.bind(this));
 };
 
-// Prompts user with setting options.
+/**
+ * Prompts user with setting options.
+ */
 di.settings = function() {
     var separator = di.prompt.separator,
         choices = [{
@@ -322,11 +328,14 @@ di.settings = function() {
     }.bind(di));
 };
 
+/**
+ * Ends the `di` process with the a common exit message.
+ */
 di.exit = function() {
     if (di.displayExit) {
         //this.insight.track('di', 'exit');
-        var url = 'https://github.com/deployr/deployr#team';
-        var newLine = '\n';
+        var url = 'https://github.com/deployr/deployr#team',
+            newLine = '\n';
 
         console.log(
             di.brand +

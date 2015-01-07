@@ -1,14 +1,17 @@
 {
   "name": "deployr-cli",
   "version": "7.3.2",
-  "description": "CLI tool for running useful DeployR utilities",
+  "description": "The DeployR command line interface, a tool for running useful DeployR utilities.",
   "private": false,
   "keywords": [
     "cli",
     "deployr",
     "rbroker",
     "R",
-    "analytics"
+    "rro",
+    "revolution",
+    "analytics",
+    "statistics"
   ],
   "author": "DeployR - Revolution Analytics Inc.",
   "contributors": [
