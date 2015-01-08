@@ -47,28 +47,22 @@ try it out from your command line:
 di <resource> <action> <param1> <param2> ...
 ```
 
-### Using Ember CLI
+### Using DeployR CLI
 
  Command                                     | Purpose
  :------------------------------------------ | :-------
- `di`                                     | Prints out a list of available commands.
- `ember new <app-name>`                      | Creates a folder called `<app-name>` and generates an application structure for you.  If git is available the folder will be initialized as a git repository and an initial commit will be created.  Use  `--skip-git` flag to disable this feature.
- `ember init`                                | Generates an application structure for you in the current folder.
- `ember build`                               | Builds the application to `dist/` directory (customize via `--output-path` flag). Use `--environment` flag to specify the environment to build for (defaults to `development`). Use `--watch` flag keep the process running, observing the filesystem and rebuilding when changes occur.
- `ember server`                              | Starts up the server. Default port is `4200`. Use `--proxy` flag to proxy all ajax requests to the given address. For example `ember server --proxy http://127.0.0.1:8080` will proxy all your apps XHR to your server running at port 8080.
- <span style="white-space:nowrap">`ember generate <generator-name> <options>`</span> | Runs a specific generator. To see available generators, run `ember help generate`.
- `ember test`                                | Run tests with Testem on CI mode. You can pass any options to Testem through `testem.json`, by default we'll search for it under your project's root or you can specify `config-file`.
- `ember install`                             | Installs npm and bower dependencies
- `ember install:npm <packages>`              | Installs the given npm dependencies to your project and saves them to the `package.json`
- `ember install:bower <packages>`            | Installs the given bower dependencies to your project and saves them to the `bower.json`
- `ember install:addon <addon-name>`          | Installs the given addon to your project and saves it to the `package.json`. It will run the addon's `defaultBlueprint` if it provides one.
-
-
-
-
-
-
-
+ `di`                                        | Main menu.
+ `di endpoint`                               | Set the DeployR server endpoint.
+ `di login`                                  | Log into DeployR
+ `di logout`                                 | Log out of DeployR
+ `di whoami`                                 |
+ `di install example`                        | Install a pre-built example.
+ `di install example <example-name>`         | Install a pre-built example by name.
+ `di about`                                  | 
+ `di config`                                 |
+ `di users`                                  |
+ `di server`                                 |
+ 
 ### Common Commands
 
 *Main menu:*
@@ -93,17 +87,6 @@ di login
 
 ```
 di install example
-```
-
-### Additional Commands
-
-```
-di whoami
-di logout
-di about
-di config 
-di users
-di server
 ```
 
 ## Help
