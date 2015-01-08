@@ -1,4 +1,4 @@
-# deployr-cli <small>di<small>
+# deployr-cli _di_
 
 > The DeployR command line interface. A tool for running useful [DeployR](http://deployr.revolutionanalytics.com) utilities.
 
