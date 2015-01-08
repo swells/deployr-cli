@@ -265,13 +265,13 @@ di.findHelp = function() {
         }, {
             name: 'File an issue on GitHub',
             value: di.config.get('git').cli
-        }, {
+        }, /*{
             name: '`di` help',
             value: {
                 method: 'goto',
                 args: ['about']
             }
-        }, {            
+        },*/ {            
             name: 'Take me back home!',
             value: {
                 method: 'home'
