@@ -60,7 +60,7 @@ di <resource> <action> <param1> <param2> ...
  `di config list`                            | Lists all configuration values currently set in the .diconf file.
  `di config set    <key> <value>`            | Sets the specified <key> <value> pair in the `di` configuration.
  `di config get    <key>`                    | Gets the value for the specified <key> in the `di` configuration.
- `di config delete <key>`                    | Deletes the specified <key> in the `di` configuration
+ `di config delete <key>`                    | Deletes the specified <key> in the `di` configuration.
  
 ## Help
 
