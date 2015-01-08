@@ -53,6 +53,7 @@ di <resource> <action> <param1> <param2> ...
  :------------------------------------------ | :-------
  `di`                                        | Displays the 'Main menu' User Interface.
  `di help`                                   | Prints out a list of available commands.
+ `di help <command>`                         | Prints out the _help_ text associated with the command.
  `di endpoint`                               | Set the DeployR server endpoint.
  `di login`                                  | Log into DeployR.
  `di logout`                                 | Log out of DeployR.
@@ -66,32 +67,6 @@ di <resource> <action> <param1> <param2> ...
  `di config get    <key>`                    | Gets the value for the specified <key> in the `di` configuration.
  `di config delete <key>`                    | Deletes the specified <key> in the `di` configuration
  
-### Common Commands
-
-*Main menu:*
-
-```
-di
-```
-
-*To set the DeployR server endpoint:*
-
-```
-di endpoint
-```
-
-*To log into DeployR:*
-
-```
-di login
-```
-
-*To install a pre-built example:*
-
-```
-di install example
-```
-
 ## Help
 
 All commands have corresponding _help_ text associated with it. To read the help
