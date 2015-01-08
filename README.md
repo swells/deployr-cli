@@ -1,6 +1,6 @@
 # deployr-cli
 
-> The DeployR command line interface. A tool for running useful [DeployR](http://deployr.revolutionanalytics.com) utilities.
+> The [DeployR](http://deployr.revolutionanalytics.com) command line interface. 
 
 <img src="https://github.com/swells/deployr-cli/raw/master/assets/di.png"/>
 
