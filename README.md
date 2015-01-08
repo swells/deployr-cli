@@ -66,15 +66,6 @@ di <resource> <action> <param1> <param2> ...
  `di config get    <key>`                    | Gets the value for the specified <key> in the `di` configuration.
  `di config delete <key>`                    | Deletes the specified <key> in the `di` configuration
  
- 
- help:    `di config *`  Valid commands are:
-help:    
-help:    di config list
-help:    di config set    <key> <value>
-help:    di config get    <key>
-help:    di config delete <key>
- 
- 
 ### Common Commands
 
 *Main menu:*
