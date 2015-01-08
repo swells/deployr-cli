@@ -1,7 +1,4 @@
-
-
-
-# di
+# deployr-cli
 
 > The DeployR command line interface. A tool for running useful [DeployR](http://deployr.revolutionanalytics.com) utilities.
 
@@ -14,11 +11,9 @@
 current feature set is minimal, many more CLI commands will be added going 
 forward.
 
-## Dependencies
+## Prerequisites
 
-_di_ requires:
-
-- [Node.js](http://nodejs.org/) to be installed.
+- Install the latest stable version of [Node.js](http://nodejs.org/) (version 0.10.x).
 - A running [DeployR](http://deployr.revolutionanalytics.com/documents/admin/install) server to connect to.
 
 ## Installation
