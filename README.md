@@ -20,7 +20,7 @@ forward.
 
 The DeployR CLI is installed and managed via [npm](http://npmjs.org), the [Node.js](http://nodejs.org/) package manager.
 
-To get started, you will want to install _di's_ command line interface (CLI) 
+To get started, you will want to install the DeployR command line interface (CLI) 
 globally. You may need to use sudo for (OSX, *nix, BSD, etc). If you are using 
 Windows, run your command shell as Administrator.
 
@@ -77,7 +77,7 @@ For example, to display the help text for the `whoami` command:
 
 ## .diconf file
 
-All configuration data for your local `di` install is located in the *.diconf* 
+All configuration data for your local DeployR CLI install is located in the *.diconf* 
 file in your home directory. Directly modifying this file is not advised. You 
 should be able to make all configuration changes from the _main menu_ UI or via:
 
