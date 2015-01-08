@@ -6,7 +6,7 @@
 
 ## Overview
 
-[di](https://github.com/deployr/deployr-cli) is a [Command Line Tool (CLI)](http://en.wikipedia.org/wiki/Command-line_interface) for running useful 
+DeployR CLI is a [Command Line Tool (CLI)](http://en.wikipedia.org/wiki/Command-line_interface) for running useful 
 [DeployR](http://deployr.revolutionanalytics.com) utilities. Although the 
 current feature set is minimal, many more CLI commands will be added going 
 forward.
@@ -35,7 +35,7 @@ any location.
 
 ## Usage
 
-`di` is self documenting and the best way to become familiar with the tool is to 
+DeployR CLI is self documenting and the best way to become familiar with the tool is to 
 try it out from your command line:
 
 ```
