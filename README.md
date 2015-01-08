@@ -47,7 +47,7 @@ try it out from your command line:
 di <resource> <action> <param1> <param2> ...
 ```
 
-### Using DeployR CLI
+### Commands
 
  Command                                     | Purpose
  :------------------------------------------ | :-------
