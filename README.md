@@ -96,7 +96,9 @@ For example, to display the help text for the `whoami` command:
 
 ## .diconf file
 
-All configuration data for your local `di` install is located in the *.diconf* file in your home directory. Directly modifying this file is not really advised. You should be able to make all configuration changes from the _main menu_ UI or via:
+All configuration data for your local `di` install is located in the *.diconf* 
+file in your home directory. Directly modifying this file is not advised. You 
+should be able to make all configuration changes from the _main menu_ UI or via:
 
 ```
 di config
