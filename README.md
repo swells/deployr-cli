@@ -51,17 +51,29 @@ di <resource> <action> <param1> <param2> ...
 
  Command                                     | Purpose
  :------------------------------------------ | :-------
- `di`                                        | Main menu.
+ `di`                                        | Displays the 'Main menu' User Interface.
+ `di help`                                   | Prints out a list of available commands.
  `di endpoint`                               | Set the DeployR server endpoint.
- `di login`                                  | Log into DeployR
- `di logout`                                 | Log out of DeployR
- `di whoami`                                 |
+ `di login`                                  | Log into DeployR.
+ `di logout`                                 | Log out of DeployR.
+ `di whoami`                                 | Displays the current logged in user to DeployR.
  `di install example`                        | Install a pre-built example.
  `di install example <example-name>`         | Install a pre-built example by name.
- `di about`                                  | 
- `di config`                                 |
- `di users`                                  |
- `di server`                                 |
+ `di about`                                  | Displays DeployR server information based on the set server `endpoint`.
+ `di config`                                 | Allow you to edit your local `di` configuration file.
+ `di config list`                            | Lists all configuration values currently set in the .diconf file.
+ `di config set    <key> <value>`            | Sets the specified <key> <value> pair in the `di` configuration.
+ `di config get    <key>`                    | Gets the value for the specified <key> in the `di` configuration.
+ `di config delete <key>`                    | Deletes the specified <key> in the `di` configuration
+ 
+ 
+ help:    `di config *`  Valid commands are:
+help:    
+help:    di config list
+help:    di config set    <key> <value>
+help:    di config get    <key>
+help:    di config delete <key>
+ 
  
 ### Common Commands
 
