@@ -1,3 +1,10 @@
+
+       ___ <br>
+  ____/ (_)<br>
+ / __  / / <br>
+/ /_/ / /  <br>
+\__,_/_/   <br>
+
 # di
 
 > The DeployR command line interface. A tool for running useful [DeployR](http://deployr.revolutionanalytics.com) utilities.
