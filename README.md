@@ -1,6 +1,6 @@
 # di
 
-> CLI tool for running useful [DeployR](http://deployr.revolutionanalytics.com) utilities
+> The DeployR command line interface, a tool for running useful [DeployR](http://deployr.revolutionanalytics.com) utilities
 
 <img src="https://github.com/swells/deployr-cli/raw/master/assets/di.png"/>
 
