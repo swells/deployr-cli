@@ -99,7 +99,7 @@ Example:
 di --diconf /path/to/other/configuration/.diconf
 ```
 
-## di options
+## Options
 
     di [commands] [options]
  
