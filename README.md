@@ -54,9 +54,9 @@ di <resource> <action> <param1> <param2> ...
  `di logout`                                 | Log out of DeployR.
  `di whoami`                                 | Displays the current logged in user to DeployR.
  `di install example`                        | Install a pre-built example.
- `di install example <name>`                 | Install a pre-built example by name.
+ `di install example <name>`                 | Install a pre-built example by example name.
  `di about`                                  | Displays DeployR server information based on the set server `endpoint`.
- `di config`                                 | Allow you to edit your local `di` [configuration file](#.diconf).
+ `di config`                                 | Allow you to edit your local `di` [configuration file](#diconf-file).
  `di config list`                            | Lists all configuration values currently set in the .diconf file.
  `di config set    <key> <value>`            | Sets the specified <key> <value> pair in the `di` configuration.
  `di config get    <key>`                    | Gets the value for the specified <key> in the `di` configuration.
