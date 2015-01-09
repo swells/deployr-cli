@@ -56,8 +56,8 @@ di <resource> <action> <param1> <param2> ...
  `di install example`                        | Install a pre-built example.
  `di install example <name>`                 | Install a pre-built example by example name.
  `di about`                                  | Displays DeployR server information based on the set server `endpoint`.
- `di config`                                 | Allow you to edit your local `di` [configuration file](#diconf-file).
- `di config list`                            | Lists all configuration values currently set in the .diconf file.
+ `di config`                                 | Allow you to edit your local `di` [configuration](#diconf-file) file.
+ `di config list`                            | Lists all configuration values currently set in the configuration file.
  `di config set    <key> <value>`            | Sets the specified <key> <value> pair in the `di` configuration.
  `di config get    <key>`                    | Gets the value for the specified <key> in the `di` configuration.
  `di config delete <key>`                    | Deletes the specified <key> in the `di` configuration.
