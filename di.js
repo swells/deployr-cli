@@ -1,5 +1,5 @@
 /*!
- * Copyright (C) 2010-2014 by Revolution Analytics Inc.
+ * Copyright (C) 2010-2015 by Revolution Analytics Inc.
  *
  * This program is licensed to you under the terms of Version 2.0 of the
  * Apache License. This program is distributed WITHOUT
@@ -209,16 +209,16 @@ di.home = function() {
         endpoint = di.config.get('endpoint'),
         name = di.config.get('username'),
         defaultChoices = [{
-            name: 'Settings',
-            value: {
-                method: 'settings'
-            }
-        }, {
             name: 'Install an example',
             value: {
                 method: 'goto',
                 args: ['install', 'example']
             }
+        }, {
+            name: 'Settings',
+            value: {
+                method: 'settings'
+            }                   
         }, {
             name: 'Find some help',
             value: {
@@ -253,7 +253,6 @@ di.home = function() {
  * Prompts user with a few helpful resources, then opens it in their browser.
  */
 di.findHelp = function() {
-    // this.insight.track('di', 'help');
     di.prompt.inquirer([{
         name: 'whereTo',
         type: 'list',
@@ -265,20 +264,13 @@ di.findHelp = function() {
         }, {
             name: 'File an issue on GitHub',
             value: di.config.get('git').cli
-        }, /*{
-            name: '`di` help',
-            value: {
-                method: 'goto',
-                args: ['about']
-            }
-        },*/ {            
+        }, {            
             name: 'Take me back home!',
             value: {
                 method: 'home'
             }
         }]
     }], function(answer) {
-        //this.insight.track('di', 'help', answer);
         if (this._.isFunction(this[answer.whereTo.method])) {
             this[answer.whereTo.method](answer.whereTo.args);
         } else {
