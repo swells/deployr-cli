@@ -99,7 +99,6 @@ di.start = function(callback) {
     }
 
     di.init(function(err) {
-        //di.welcome();
 
         if (err) {
             di.showError(di.argv._.join(' '), err);
@@ -177,8 +176,8 @@ di.setup = function(callback) {
  * @param {Error} err       - Error received for the command.
  * @param {Boolean} shallow - Indicate if a deep stack should be displayed
  */
-di.showError = function(command, err, shallow) {
-    di.log.error('Error running command ' + command.magenta);
+di.showError = function(command, err, shallow) {    
+    di.log.error('Error running command ' + di.chalk.magenta(command));
 
     if (err.stack && !shallow) {
         err.stack.split('\n').forEach(function(trace) {
@@ -194,11 +193,18 @@ di.showError = function(command, err, shallow) {
 };
 
 /**
- *
+ * Menu selection to run commands.
  */
 di.goto = function(command, callback) {
-    callback = callback || function() {};
-    di.plugins.cli.executeCommand(command, callback);
+    var cmdStr = (command || []).join(' ');
+
+    di.plugins.cli.executeCommand(command, function(err, shallow) {
+        if (err) {
+            di.showError(cmdStr, err, shallow);
+        }
+
+        di.displayExit = false;
+    });
 };
 
 /**
@@ -232,7 +238,6 @@ di.home = function() {
         }];
 
     name = (name && endpoint ? ' ' + name + '@' + endpoint.replace(/^https?:\/\//, '') : '');
-    //this.insight.track('di', 'home');    
 
     di.prompt.inquirer([{
         name: 'whatNext',
@@ -325,7 +330,6 @@ di.settings = function() {
  */
 di.exit = function() {
     if (di.displayExit) {
-        //this.insight.track('di', 'exit');
         var url = 'https://github.com/deployr/deployr#team',
             newLine = '\n';
 
