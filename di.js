@@ -9,18 +9,16 @@
  * details.
  */
 
-/**
- * @module deployr-cli
- */
 
 'use strict';
 
 /**
  * CLI tool for running useful DeployR utilities.
+ * @module deployr-cli
  */
 
-var path = require('path'),
-    opn = require('opn'),
+var path     = require('path'),
+    opn      = require('opn'),
     flatiron = require('flatiron');
 
 /** 
@@ -60,21 +58,21 @@ di.use(flatiron.plugins.cli, {
     }
 });
 
-/**
- * Configure `di` to use `cli-inquirer` for more sophisticated prompts.
- */
+//
+// Configure `di` to use `cli-inquirer` for more sophisticated prompts.
+//
 di.use(require('./lib/plugins/inquirer'));
 
 //
 // Setup `di` with: config, command aliases settings
 //
-require('./lib/config');
-require('./lib/alias');
-require('./lib/commands');
 di.chalk = require('chalk');
 di._ = require('lodash');
 di.brand = require('./lib/util/brand');
 di.spawnCommand = require('./lib/util/spawn-command');
+require('./lib/config');
+require('./lib/alias');
+require('./lib/commands');
 
 //
 // Setup other di settings.
@@ -149,7 +147,7 @@ di.exec = function(command, callback) {
  * Sets up the instances of the Resource clients for di.
  * there is no io here, yet this function is ASYNC.
  *
- * @param {Function} callback - ontinuation to pass control to when complete.
+ * @param {Function} callback - continuation to pass control to when complete.
  */
 di.setup = function(callback) {
     if (di.started === true) {
