@@ -27,14 +27,14 @@ var path     = require('path'),
 var di = module.exports = flatiron.app;
 di.name = 'di';
 
-/**
- * Setup `di` to use `pkginfo` to expose version,
- */
+//
+// Setup `di` to use `pkginfo` to expose version,
+//
 require('pkginfo')(module, 'name', 'version');
 
-/**
- * Configure `di` to use `flatiron.plugins.cli`
- */
+//
+// Configure `di` to use `flatiron.plugins.cli`
+//
 di.use(flatiron.plugins.cli, {
     version: true,
     usage: require('./lib/usage'),

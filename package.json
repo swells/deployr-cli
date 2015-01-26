@@ -52,7 +52,7 @@
         "di": "bin/di"
     },
     "scripts": {
-        "doc": "./node_modules/.bin/jsdoc -c ./jsdoc.json ./README.md",
+        "doc": "./node_modules/.bin/jsdoc -c ./jsdoc.json README.md",
         "test": "echo \"Error: no test specified\" && exit 1"
     },    
     "main": "di.js",

@@ -1,6 +1,6 @@
 {
   "source": {
-    "include": ["./di.js", "lib"],
+    "include": ["./package.json", "./di.js", "lib"],
     "exclude": [ "./lib/completion.js" ],
     "includePattern": ".+\\.js(doc)?$"
   },

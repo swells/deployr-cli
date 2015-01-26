@@ -1,5 +1,5 @@
-# Ignore build 
-dist/
+# Ignore doc build 
+deployr-cli-doc/
 
 # Ignore extensions
 *.diff
