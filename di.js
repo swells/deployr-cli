@@ -13,7 +13,8 @@
 'use strict';
 
 /**
- * CLI tool for running useful DeployR utilities.
+ * The DeployR command line interface, a tool for running useful DeployR 
+ * utilities.
  * @module deployr-cli
  */
 
@@ -25,6 +26,11 @@ var path     = require('path'),
  * @alias module:deployr-cli 
  */ 
 var di = module.exports = flatiron.app;
+
+/**
+ * Expose the CLI name _di_.
+ * @property {String} name - The CLI name.
+ */
 di.name = 'di';
 
 //
@@ -117,11 +123,11 @@ di.start = function(callback) {
 
 /**
  * Runs the specified command in the `di` CLI.
+ *
  * @param {String} command - Command to execute
  * @param {Function} callback - Continuation to pass control to when complete. 
  */
 di.exec = function(command, callback) {
-
     function execCommand(err) {
 
         if (err) {
@@ -210,9 +216,9 @@ di.goto = function(command, callback) {
  */
 di.home = function() {
     var separator = di.prompt.separator,
-        endpoint = di.config.get('endpoint'),
-        name = di.config.get('username'),
-        defaultChoices = [{
+        endpoint  = di.config.get('endpoint'),
+        name      = di.config.get('username'),
+        defaults  = [{
             name: 'Install an example',
             value: {
                 method: 'goto',
@@ -244,7 +250,7 @@ di.home = function() {
         choices: this._.flatten([
             separator('Choices'),
             separator(),
-            defaultChoices,
+            defaults,
             separator()
         ])
     }], function(answer) {
