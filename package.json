@@ -19,7 +19,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git://github.com/swells/deployr-cli.git"
+        "url": "git://github.com/deployr/deployr-cli.git"
     },
     "homepage": "http://deployr.revolutionanalytics.com",
     "dependencies": {
@@ -33,15 +33,13 @@
         "enum": "^0.2.6",
         "flatiron": "0.3.8",
         "flatiron-cli-config": "0.1.4",
-        "flatiron-cli-users": "0.1.8",
         "inquirer": "^0.8.0",
         "lodash": "^2.4.1",
         "opn": "^1.0.1",
         "pkginfo": "0.3.0",
         "request": "^2.40.0",
         "require-analyzer": "0.5.0",
-        "shelljs": "^0.3.0",
-        "spawn-command": "0.0.2"
+        "shelljs": "^0.3.0"
     },
     "devDependencies": {
         "jsdoc": "^3.3.0-alpha13",
@@ -52,7 +50,7 @@
         "di": "bin/di"
     },
     "scripts": {
-        "doc": "./node_modules/.bin/jsdoc -c ./jsdoc.json README.md",
+        "doc": "node node_modules/.bin/jsdoc -c jsdoc.json README.md",
         "test": "echo \"Error: no test specified\" && exit 1"
     },    
     "main": "di.js",
@@ -61,6 +59,6 @@
     },
     "license": "Apache 2.0 License",
     "bugs": {
-        "url": "https://github.com/swells/deployr-cli/issues"
+        "url": "https://github.com/deployr/deployr-cli/issues"
     }
 }
