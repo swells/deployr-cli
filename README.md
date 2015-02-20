@@ -24,7 +24,13 @@ To get started, you will want to install the DeployR command line interface (CLI
 globally. You may need to use sudo for (OSX, *nix, BSD, etc). If you are using 
 Windows, run your command shell as Administrator.
 
-Note: Message on node.exe and node.js conflicts node.exe from Microsoft HPC Pack.
+*Note* to Windows users that have the [Microsoft HPC Pack](https://msdn.microsoft.com/en-us/library/cc853440%28v=vs.85%29.aspx). 
+
+If your environment has the Microsoft HPC Pack, the `node.exe` from Node.js can
+conflict with the `node.exe` from the Microsoft HPC Pack. You can view the [open issue](https://github.com/joyent/node/issues/7773).
+
+The current solution is to manually reorder the paths in the `PATH` environment 
+variable (giving Node.js's path a higher priority) 
 
 One-line install using [npm](http://npmjs.org):
 
