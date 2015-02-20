@@ -4,7 +4,6 @@
 
 <img src="https://github.com/swells/deployr-cli/raw/master/assets/di.png"/>
 
-
 ## Overview
 
 DeployR CLI is a [Command Line Tool (CLI)](http://en.wikipedia.org/wiki/Command-line_interface) for running useful 
