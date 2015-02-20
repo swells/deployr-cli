@@ -26,6 +26,9 @@ Windows, run your command shell as Administrator.
 
 One-line install using [npm](http://npmjs.org):
 
+
+Note: Microsoft HPC 
+
 ```
 npm install -g deployr-cli
 ```
