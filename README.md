@@ -24,6 +24,8 @@ To get started, you will want to install the DeployR command line interface (CLI
 globally. You may need to use sudo for (OSX, *nix, BSD, etc). If you are using 
 Windows, run your command shell as Administrator.
 
+Note: Message on node.exe and node.js conflicts node.exe from Microsoft HPC Pack.
+
 One-line install using [npm](http://npmjs.org):
 
 ```
