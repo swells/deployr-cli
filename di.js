@@ -9,7 +9,7 @@
  * details.
  */
 
-// cp test2
+// cp test3
 
 'use strict';
 
