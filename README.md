@@ -118,9 +118,11 @@ di --diconf /path/to/other/configuration/.diconf
 
 ## Tab Completion
 
-### System Requirements
+*System Requirements**
 
 - bash
+
+Anyother shell will simply ignore tab completions.
 
 Example:
 
