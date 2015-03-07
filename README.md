@@ -118,7 +118,7 @@ di --diconf /path/to/other/configuration/.diconf
 
 ## Tab Completion
 
-*System Requirements**
+**System Requirements**
 
 - bash
 
