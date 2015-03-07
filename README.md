@@ -115,6 +115,25 @@ di --diconf /path/to/other/configuration/.diconf
     --diconf [file]       specify file to load configuration from
     --help                prints cli help and exit
 
+
+## Tab Completion
+
+### System Requirements
+
+- bash
+
+Example:
+
+```
+$ di lo<TAB>
+
+  login logout
+
+$ di w<TAB>
+  
+  whoami
+```
+
 ## License
 
 Copyright (C) 2010-2015 by Revolution Analytics Inc.
