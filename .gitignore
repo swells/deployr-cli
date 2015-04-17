@@ -28,3 +28,7 @@ deployr-cli-doc/
 # Ignore node
 node_modules/
 npm-debug.log
+
+# Ignore any examples
+java-example-fraud-score/
+js-example-fraud-score/

@@ -9,7 +9,6 @@
  * details.
  */
 
-// cp test3
 
 'use strict';
 
@@ -273,7 +272,7 @@ di.findHelp = function() {
             value: di.config.get('homepage')
         }, {
             name: 'File an issue on GitHub',
-            value: di.config.get('git').cli
+            value: di.config.get('git').cli + '/issues'
         }, {            
             name: 'Take me back home!',
             value: {
@@ -334,8 +333,11 @@ di.settings = function() {
  * Ends the `di` process with the a common exit message.
  */
 di.exit = function() {
-    if (di.displayExit) {
-        var url = 'https://github.com/deployr/deployr#team',
+    if (di.continueOnExit) {
+//        di.spawnCommand('di');
+        //process.stdin.resume();
+    } else if (di.displayExit) {
+        var url = 'https://github.com/deployr',
             newLine = '\n';
 
         console.log(
@@ -346,7 +348,15 @@ di.exit = function() {
             newLine +
             'The DeployR Team' + di.chalk.dim.yellow(' ♥  ' + url)
         );
-    }
+    } 
 };
 
 process.once('exit', di.exit.bind(this));
+
+/*
+process.stdin.on('data', function(chunk) {
+  console.log('chunk: ' + chunk);
+});
+*/
+
+

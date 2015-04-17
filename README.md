@@ -2,7 +2,7 @@
 
 > The [DeployR](http://deployr.revolutionanalytics.com) command line interface. 
 
-<img src="https://github.com/swells/deployr-cli/raw/master/assets/di.png"/>
+<img src="https://github.com/deployr/deployr-cli/raw/master/assets/di.png"/>
 
 ## Overview
 
@@ -16,6 +16,15 @@ forward.
 - Install the latest stable version of [Node.js](http://nodejs.org/) (version 0.10.x).
 - A running [DeployR](http://deployr.revolutionanalytics.com/documents/admin/install) server to connect to.
 
+**Note** to Windows users that have the [Microsoft HPC Pack](https://msdn.microsoft.com/en-us/library/cc853440%28v=vs.85%29.aspx). 
+
+If your environment has the Microsoft HPC Pack, the `node.exe` from Node.js can
+conflict with the `node.exe` from the Microsoft HPC Pack (same name). You can 
+view the [open issue](https://github.com/joyent/node/issues/7773) here.
+
+The current solution is to manually reorder the paths in the `PATH` environment 
+variable giving Node.js's path a higher priority after installation.
+
 ## Installation
 
 The DeployR CLI is installed and managed via [npm](http://npmjs.org), the [Node.js](http://nodejs.org/) package manager.
@@ -23,14 +32,6 @@ The DeployR CLI is installed and managed via [npm](http://npmjs.org), the [Node.
 To get started, you will want to install the DeployR command line interface (CLI) 
 globally. You may need to use sudo for (OSX, *nix, BSD, etc). If you are using 
 Windows, run your command shell as Administrator.
-
-*Note* to Windows users that have the [Microsoft HPC Pack](https://msdn.microsoft.com/en-us/library/cc853440%28v=vs.85%29.aspx). 
-
-If your environment has the Microsoft HPC Pack, the `node.exe` from Node.js can
-conflict with the `node.exe` from the Microsoft HPC Pack. You can view the [open issue](https://github.com/joyent/node/issues/7773).
-
-The current solution is to manually reorder the paths in the `PATH` environment 
-variable (giving Node.js's path a higher priority) 
 
 One-line install using [npm](http://npmjs.org):
 
@@ -81,7 +82,7 @@ di help <command>
 
 For example, to display the help text for the `whoami` command:
 
-<img src="https://github.com/swells/deployr-cli/raw/master/assets/whoami.png"/>
+<img src="https://github.com/deployr/deployr-cli/raw/master/assets/whoami.png"/>
 
 ## .diconf file
 
@@ -115,14 +116,16 @@ di --diconf /path/to/other/configuration/.diconf
     --diconf [file]       specify file to load configuration from
     --help                prints cli help and exit
 
-
 ## Tab Completion
 
 **System Requirements**
 
 - bash
 
-Anyother shell will simply ignore tab completions.
+Any other shell other than `bash` will simply ignore tab completions. The first
+time you run `$ di` from the command line it will add to your `.bashrc` or
+`.bash_profile` or .`profile` the necessary hooks. Upon sourcing these files, 
+the next time you run `$ di <TAB>` the completions with appear.
 
 Example:
 
@@ -135,6 +138,14 @@ $ di w<TAB>
   
   whoami
 ```
+
+## API Documentation
+
+For advance usage, see our [API documentation](http://deployr.github.io/deployr-cli)
+
+## Notes
+
+Inspired by the [nodejitsu](https://www.nodejitsu.com) CLI and others.
 
 ## License
 

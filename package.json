@@ -1,6 +1,6 @@
 {
     "name": "deployr-cli",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "The DeployR command line interface, a tool for running useful DeployR utilities.",
     "private": false,
     "keywords": [
@@ -23,7 +23,7 @@
     },
     "homepage": "http://deployr.revolutionanalytics.com",
     "dependencies": {
-        "chalk": "^0.5.1",
+        "chalk": "^1.0.0",
         "char-spinner": "^1.0.1",
         "complete": "0.3.1",
         "cross-spawn": "^0.2.3",
@@ -43,14 +43,13 @@
     },
     "devDependencies": {
         "jsdoc": "^3.3.0-alpha13",
-        "jshint": "^2.5.11",
-        "nock": "^0.56.0"
+        "jshint": "^2.5.11"
     },
     "bin": {
         "di": "bin/di"
     },
     "scripts": {
-        "doc": "node node_modules/.bin/jsdoc -c jsdoc.json README.md",
+        "doc": "node_modules/.bin/jsdoc -c jsdoc.json README.md",
         "test": "echo \"Error: no test specified\" && exit 1"
     },    
     "main": "di.js",
