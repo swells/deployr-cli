@@ -9,7 +9,6 @@
  * details.
  */
 
-
 'use strict';
 
 /**
@@ -352,11 +351,5 @@ di.exit = function() {
 };
 
 process.once('exit', di.exit.bind(this));
-
-/*
-process.stdin.on('data', function(chunk) {
-  console.log('chunk: ' + chunk);
-});
-*/
 
 
